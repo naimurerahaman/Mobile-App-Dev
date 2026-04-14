@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Sticky Toolbar (outside ScrollView) -->
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#1976D2"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="The Daily Reader"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/bookmarkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/btn_star_big_off"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Bookmark"/>
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_share"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Share"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Scrollable Article Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/backToTopButton">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header Image -->
+            <ImageView
+                android:id="@+id/headerImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:contentDescription="Article Header"/>
+
+            <!-- Category Tag -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TECHNOLOGY"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#E53935"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:paddingTop="4dp" android:paddingBottom="4dp"
+                android:layout_marginTop="12dp"/>
+
+            <!-- Article Title -->
+            <TextView
+                android:id="@+id/articleTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The Future of Artificial Intelligence in Everyday Life"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#111111"
+                android:layout_marginTop="10dp"/>
+
+            <!-- Author Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@mipmap/ic_launcher_round"
+                    android:contentDescription="Author"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dr. Rahim Uddin"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  •  April 14, 2026"
+                    android:textSize="13sp"
+                    android:textColor="#888888"/>
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#E0E0E0" android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Quick Navigation Buttons -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button android:id="@+id/btnIntro"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content" android:layout_height="40dp"
+                        android:text="Introduction" android:layout_marginEnd="8dp"/>
+                    <Button android:id="@+id/btnKeyPoints"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content" android:layout_height="40dp"
+                        android:text="Key Points" android:layout_marginEnd="8dp"/>
+                    <Button android:id="@+id/btnAnalysis"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content" android:layout_height="40dp"
+                        android:text="Analysis" android:layout_marginEnd="8dp"/>
+                    <Button android:id="@+id/btnConclusion"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content" android:layout_height="40dp"
+                        android:text="Conclusion"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Section 1: Introduction -->
+            <TextView android:id="@+id/sectionIntro"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Introduction" android:textSize="18sp"
+                android:textStyle="bold" android:textColor="#1976D2"
+                android:layout_marginBottom="6dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Artificial Intelligence (AI) is rapidly transforming the way we live, work, and communicate. From smart home devices to personalized healthcare, AI is becoming an integral part of our daily routines. This article explores the various facets of AI integration in everyday life, examining the opportunities and challenges that arise with this technological revolution. The ability of machines to learn, reason, and make decisions is reshaping industries and society as a whole. As citizens of the digital age, understanding AI is no longer optional — it is a necessity for navigating the modern world effectively and responsibly."
+                android:textSize="15sp" android:textColor="#333333" android:lineSpacingMultiplier="1.5"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section 2: Key Points -->
+            <TextView android:id="@+id/sectionKeyPoints"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Key Points" android:textSize="18sp"
+                android:textStyle="bold" android:textColor="#1976D2"
+                android:layout_marginBottom="6dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Several key points define the current state of AI adoption worldwide. First, the speed of deployment has outpaced regulatory frameworks in many countries, raising concerns about accountability and transparency. Second, AI is not uniform — different subfields like machine learning, natural language processing, and computer vision are advancing at different rates. Third, the digital divide means that benefits of AI are not equally distributed. Wealthier nations and individuals gain more access to AI-driven services, while others remain excluded. Finally, the workforce impact of automation is a critical concern that policymakers, educators, and businesses must address through reskilling and social safety nets."
+                android:textSize="15sp" android:textColor="#333333" android:lineSpacingMultiplier="1.5"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section 3: Analysis -->
+            <TextView android:id="@+id/sectionAnalysis"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Analysis" android:textSize="18sp"
+                android:textStyle="bold" android:textColor="#1976D2"
+                android:layout_marginBottom="6dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Analyzing AI's impact requires a multi-disciplinary lens. From an economic standpoint, AI is a driver of productivity gains, but also a disruptor of traditional employment. Sociologically, AI is redefining human relationships with technology and each other. There is growing discourse about the ethics of AI decision-making, particularly in sensitive areas such as criminal justice, healthcare diagnostics, and financial credit scoring. Researchers warn that biased training data can produce discriminatory outcomes. The analysis suggests that while AI offers tremendous promise, its benefits can only be realized sustainably when paired with robust ethical guidelines, diverse development teams, and inclusive policy frameworks that center equity."
+                android:textSize="15sp" android:textColor="#333333" android:lineSpacingMultiplier="1.5"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Section 4: Conclusion -->
+            <TextView android:id="@+id/sectionConclusion"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Conclusion" android:textSize="18sp"
+                android:textStyle="bold" android:textColor="#1976D2"
+                android:layout_marginBottom="6dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="In conclusion, AI is neither a panacea nor a threat in isolation — it reflects the values and priorities of those who design, deploy, and govern it. The future of AI in everyday life depends heavily on the decisions society makes today. Investment in AI literacy, transparent development practices, and inclusive innovation ecosystems will determine whether AI becomes a force for collective good or a widener of existing inequalities. Citizens, governments, and the private sector must collaborate to harness AI's potential while safeguarding fundamental human rights and dignity in an increasingly automated world."
+                android:textSize="15sp" android:textColor="#333333" android:lineSpacingMultiplier="1.5"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Tags Section -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Tags:" android:textStyle="bold" android:textColor="#555555"
+                android:layout_marginBottom="8dp"/>
+            <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:scrollbars="none" android:layout_marginBottom="20dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:layout_width="wrap_content" android:layout_height="36dp"
+                        android:text="AI" android:layout_marginEnd="6dp"
+                        style="@style/Widget.Material3.Button.OutlinedButton"/>
+                    <Button android:layout_width="wrap_content" android:layout_height="36dp"
+                        android:text="Technology" android:layout_marginEnd="6dp"
+                        style="@style/Widget.Material3.Button.OutlinedButton"/>
+                    <Button android:layout_width="wrap_content" android:layout_height="36dp"
+                        android:text="Innovation" android:layout_marginEnd="6dp"
+                        style="@style/Widget.Material3.Button.OutlinedButton"/>
+                    <Button android:layout_width="wrap_content" android:layout_height="36dp"
+                        android:text="Future" style="@style/Widget.Material3.Button.OutlinedButton"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Related Articles -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Related Articles" android:textSize="16sp"
+                android:textStyle="bold" android:textColor="#333333"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Related Card 1 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:background="#FFFFFF"
+                    android:padding="10dp" android:layout_marginBottom="8dp">
+                    <ImageView android:layout_width="64dp" android:layout_height="64dp"
+                        android:src="@drawable/ic_launcher_background"
+                        android:contentDescription="Related Article Image" android:scaleType="centerCrop"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Machine Learning in Healthcare" android:textSize="14sp"
+                        android:textStyle="bold" android:textColor="#222222"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+
+                <!-- Related Card 2 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:background="#FFFFFF"
+                    android:padding="10dp" android:layout_marginBottom="8dp">
+                    <ImageView android:layout_width="64dp" android:layout_height="64dp"
+                        android:src="@drawable/ic_launcher_background"
+                        android:contentDescription="Related Article Image" android:scaleType="centerCrop"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Autonomous Vehicles: Where Are We Now?" android:textSize="14sp"
+                        android:textStyle="bold" android:textColor="#222222"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+
+                <!-- Related Card 3 -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:background="#FFFFFF" android:padding="10dp">
+                    <ImageView android:layout_width="64dp" android:layout_height="64dp"
+                        android:src="@drawable/ic_launcher_background"
+                        android:contentDescription="Related Article Image" android:scaleType="centerCrop"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Ethics and AI: A New Frontier" android:textSize="14sp"
+                        android:textStyle="bold" android:textColor="#222222"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Back to Top Button (fixed bottom right, outside scroll) -->
+    <Button
+        android:id="@+id/backToTopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="▲ Top"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="#1976D2"
+        android:textColor="#FFFFFF"/>
+
+</RelativeLayout>
