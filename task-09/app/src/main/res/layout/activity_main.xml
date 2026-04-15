@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#1976D2" android:gravity="center_vertical"
+        android:paddingStart="12dp" android:paddingEnd="8dp"
+        android:orientation="horizontal">
+
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="ECommerce Shop"
+            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+
+        <TextView android:id="@+id/cartBadge"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Cart: 0" android:textColor="#FFFFFF" android:textSize="13sp"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageButton android:id="@+id/toggleViewBtn"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:src="@android:drawable/ic_dialog_dialer"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Toggle View"/>
+    </LinearLayout>
+
+    <!-- Search View -->
+    <SearchView android:id="@+id/searchView"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFFFF" android:queryHint="Search products..."/>
+
+    <!-- Category Filter -->
+    <HorizontalScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:scrollbars="none"
+        android:background="#EEEEEE">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:padding="6dp">
+            <Button android:id="@+id/catAll" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="All"
+                android:backgroundTint="#1976D2" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/catElectronics" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Electronics"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/catClothing" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Clothing"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/catBooks" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Books"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/catFood" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Food"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/catToys" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Toys"
+                android:backgroundTint="#444" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Empty State -->
+    <TextView android:id="@+id/emptyText"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:text="No products found"
+        android:gravity="center" android:textSize="16sp" android:textColor="#999"
+        android:visibility="gone"/>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="4dp"/>
+
+</LinearLayout>
