@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F4F8">
+
+    <SearchView android:id="@+id/eventSearch"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFFFF" android:queryHint="Search events..."/>
+
+    <!-- Category Chips -->
+    <HorizontalScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:scrollbars="none"
+        android:background="#EEEEEE">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:padding="6dp">
+            <Button android:id="@+id/chipAll" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="All"
+                android:backgroundTint="#1976D2" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/chipTech" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Tech"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/chipSports" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Sports"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/chipCultural" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Cultural"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/chipAcademic" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Academic"
+                android:backgroundTint="#444" android:textColor="#FFFFFF" android:layout_marginEnd="6dp"/>
+            <Button android:id="@+id/chipSocial" android:layout_width="wrap_content"
+                android:layout_height="34dp" android:text="Social"
+                android:backgroundTint="#444" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"/>
+
+</LinearLayout>
